@@ -169,7 +169,7 @@ local function set_service_gov_header(ctx)
     if pressure_tag then
         sw8_header = "," .. base64_encode("x-pressure-tag") .. ":" .. base64_encode(pressure_tag)
     end
-    ctx.request.set_header("sw8-s", sw8_header)
+    core.request.set_header(ctx, "sw8-s", sw8_header)
 end
 
 local function set_upstream(upstream_info, ctx)
