@@ -155,11 +155,19 @@ local function set_service_gov_header(ctx)
     if not group then
         return
     else
-        sw8_header = base64_encode("x-group") .. ":" .. base64_encode(group) .. ","
+        sw8_header = base64_encode("x-group") .. ":" .. base64_encode(group)
     end
 
     if swimlane_tag then
-        sw8_header = base64_encode("x-swim-lane-tag") .. ":" .. base64_encode(swimlane_tag) .. ","
+        sw8_header = "," .. base64_encode("x-swim-lane-tag") .. ":" .. base64_encode(swimlane_tag)
+    end
+
+    if gray_tag then
+        sw8_header = "," .. base64_encode("x-gray-tag") .. ":" .. base64_encode(gray_tag)
+    end
+
+    if pressure_tag then
+        sw8_header = "," .. base64_encode("x-pressure-tag") .. ":" .. base64_encode(pressure_tag)
     end
     ctx.request.set_header("sw8-s", sw8_header)
 end
