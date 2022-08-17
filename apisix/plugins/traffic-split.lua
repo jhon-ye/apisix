@@ -145,10 +145,11 @@ end
 
 
 local function set_service_gov_header(ctx)
-    local group = ctx.request.header(ctx, "x-group")
-    local pressure_tag = ctx.request.header(ctx, "x-pressure-tag")
-    local swimlane_tag = ctx.request.header(ctx, "x-swim-lane-tag")
-    local gray_tag = ctx.request.header(ctx, "x-gray-tag")
+    local headers = core.request.headers(ctx)
+    local group = headers["x-group"]
+    local pressure_tag = headers["x-pressure-tag"]
+    local swimlane_tag = headers["x-swim-lane-tag"]
+    local gray_tag = headers["x-gray-tag"]
 
     local sw8_header
 
