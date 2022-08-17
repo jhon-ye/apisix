@@ -161,6 +161,7 @@ local function set_service_gov_header(ctx)
     if swimlane_tag then
         sw8_header = base64_encode("x-swim-lane-tag") .. ":" .. base64_encode(swimlane_tag) .. ","
     end
+    ctx.request.set_header("sw8-s", sw8_header)
 end
 
 local function set_upstream(upstream_info, ctx)
