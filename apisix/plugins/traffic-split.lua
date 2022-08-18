@@ -146,25 +146,12 @@ end
 
 local function set_service_gov_header(ctx)
     local headers = core.request.headers(ctx)
-    local group = headers["x-group"]
     local pressure_tag = headers["x-pressure-tag"]
     local swimlane_tag = headers["x-swim-lane-tag"]
-    local gray_tag = headers["x-gray-tag"]
-
     local sw8_header
 
-    if not group then
-        return
-    else
-        sw8_header = base64_encode("x-group") .. ":" .. base64_encode(group)
-    end
-
     if swimlane_tag then
-        sw8_header = sw8_header .. "," .. base64_encode("x-swim-lane-tag") .. ":" .. base64_encode(swimlane_tag)
-    end
-
-    if gray_tag then
-        sw8_header = sw8_header .. "," .. base64_encode("x-gray-tag") .. ":" .. base64_encode(gray_tag)
+        sw8_header =  base64_encode("x-swim-lane-tag") .. ":" .. base64_encode(swimlane_tag)
     end
 
     if pressure_tag then
