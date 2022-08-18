@@ -20,7 +20,7 @@ version = "2.15.0-0"
 supported_platforms = {"linux", "macosx"}
 
 source = {
-    url = "git@github.com:jhon-ye/apisix.git",
+    url = "git://github.com/jhon-ye/apisix",
     branch = "2.15.0",
 }
 
